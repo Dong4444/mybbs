@@ -46,10 +46,10 @@ class CateController extends CommonController
         // $parts = M('bbs_part')->getField('pid,pname');
 
         //获取用户信息
-        // $users = M('bbs_user')->select();
-        // $users = array_column($users,'uname','uid');
+        $users = M('bbs_user')->select();
+        $users = array_column($users,'uname','uid');
         
-        $users = M('bbs_user')->getField('uid,uname');
+        // $users = M('bbs_user')->getField('uid,uname');
         
         //遍历显示
         $this->assign('cates',$cates);
@@ -102,6 +102,8 @@ class CateController extends CommonController
         }else{
             $this->error('修改分区失败!');
         }
+        // echo '<pre>';
+        // print_R($_POST);
     }
     
     
